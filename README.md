@@ -1,3 +1,10 @@
+## Solution
+- Build the source code with `make`
+- Start `hangman` without argument. It reads the `words.txt` file.
+- You can exit by pressing `ctrl-c`
+- Start `hangman words_test.txt` for testing with some easy to solve examples
+- To run unit test run `make test`
+
 ## Programming Assignment: Hangman Console Game in Go
 
 ### Objective:
