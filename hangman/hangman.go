@@ -31,7 +31,7 @@ func Start() {
 	// Seed the random number generator
 	rand.New(rand.NewSource(time.Now().UnixNano()))
 
-	fmt.Println("Welcome to Hangman!")
+	fmt.Println("Welcome to Hangman game!")
 	fmt.Println("____________")
 	fmt.Println()
 
@@ -52,6 +52,7 @@ func Start() {
 	for {
 		clearScreen()
 		printHeader()
+
 		drawHangman(wrongGuesses - 1)
 
 		fmt.Println()
@@ -77,7 +78,7 @@ func Start() {
 
 		guess := strings.TrimSpace(strings.ToLower(string(input)))
 		if len(guess) != 1 || !strings.Contains(alphabet, guess) {
-			fmt.Println("Please enter a single letter.")
+			wrongGuesses++
 			continue
 		}
 
@@ -87,6 +88,7 @@ func Start() {
 					guesses[i] = guess
 				}
 			}
+
 			if !strings.Contains(strings.Join(guesses, ""), "_") {
 				fmt.Printf("\nThe word was: %s\n", selectedWord)
 				fmt.Println("Congratulations, you've won!")
